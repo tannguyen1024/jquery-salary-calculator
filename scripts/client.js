@@ -8,6 +8,7 @@ let totalSalary = 0;
 function handleReady() {
     if (verbose) console.log('jQuery is Ready!');
     $('#submitButton').on('click', clickSubmit);
+    $('.delete').on('click', clickDelete);
 }
 
 function clickSubmit() {
@@ -24,6 +25,12 @@ function clickSubmit() {
     displayEmployee();
 }
 
+function clickDelete() {
+    console.log('You clicked delete!');
+    $(this).parent().remove();
+    // WHEN YOU WORK ON THIS AGAIN, START HERE BY LOOKING AT INSPECT TOOL
+}
+
 function displayEmployee() {
     let el = $('#table');
     $('#tableHeader').siblings().empty();
@@ -36,9 +43,10 @@ function displayEmployee() {
             <td>${employees[i].id}</td>
             <td>${employees[i].title}</td>
             <td>$${employees[i].annualsalary}</td>
-            <td><button class="btn btn-secondary" id="delete">Delete</button></td>
+            <td><button class="btn btn-secondary delete">Delete</button></td>
         </tr>`)
         totalSalary += Number(`${employees[i].annualsalary}`);
+        $('.delete').on('click', clickDelete);
     } // End For Loop
     $('#totalMonthlySpan').append(totalSalary);
     if (totalSalary > 20000) {
