@@ -39,5 +39,16 @@ function displayEmployee() {
             <td><button class="btn btn-secondary" id="delete">Delete</button></td>
         </tr>`)
         totalSalary += Number(`${employees[i].annualsalary}`);
-    } $('#totalMonthlySpan').append(totalSalary);
+    } // End For Loop
+    $('#totalMonthlySpan').append(totalSalary);
+    if (totalSalary > 20000) {
+        console.log('GREATER THAN 20K');
+        $('#totalMonthlyDiv').addClass('turnsRed')
+    }
+    // Empty Input Fields
+    $('#firstnameInput').val('');
+    $('#lastnameInput').val('');
+    $('#idInput').val('');
+    $('#titleInput').val('');
+    $('#salaryInput').val('');
 }

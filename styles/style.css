@@ -1,3 +1,7 @@
 #totalMonthlyDiv {
 text-align: right;
+align-items: right;
+}
+.turnsRed {
+    background-color: red;
 }
