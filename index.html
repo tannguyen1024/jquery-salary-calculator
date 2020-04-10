@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Project #1</title>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/jQuery.js"></script>
+    <script src="scripts/client.js"></script>
+</head>
+
+<body class="container">
+    <h1 class="jumbotron">Salary Calculator</h1>
+    <h2>Add Employee</h2>
+    <input id="firstnameInput" placeholder="First Name">
+    <input id="lastnameInput" placeholder="Last Name">
+    <input id="idInput" placeholder="ID">
+    <input id="titleInput" placeholder="Title">
+    <input id="salaryInput" placeholder="Annual Salary">
+    <p><button class="btn btn-outline-primary" id="submitButton">Submit</button></p>
+
+    <h2>Employees</h2>
+    <table class="table table-striped" style="width:100%">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+            <th></th>
+
+        </tr>
+        <tr>
+            <td>Tan</td>
+            <td>Nguyen</td>
+            <td>1234</td>
+            <td>Pianist</td>
+            <td>$90,000</td>
+            <td><button class="btn btn-link" id="delete">Delete</button></td>
+        </tr>
+        <tr>
+            <td>Norbu</td>
+            <td>Samphel</td>
+            <td>1235</td>
+            <td>Gamer</td>
+            <td>$5</td>
+            <td><button class="btn btn-link" id="delete">Delete</button></td>
+        </tr>
+    </table>
+
+<div id=totalMonthlyDiv>Total Monthly: $<span id=totalMonthlySpan></span></div>
+
+</body>
+
+</html>
