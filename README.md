@@ -6,10 +6,10 @@
 
 Create an application that records employee salaries and adds salaries up to report monthly costs.
 
-[ ] Create Layout in html
-[ ] Set ID and CLASS where needed in html
-[ ] Ensure buttons talk to console
-[ ] Push the contents from inputs into an array
+[x] Create Layout in html
+[x] Set ID and CLASS where needed in html
+[x] Ensure buttons talk to console
+[x] Push the contents from inputs into an array
 [ ] Show array values in the DOM
 [ ] Calculate monthly costs & append to DOM
 [ ] If exceeds $20,000, make red in DOM
