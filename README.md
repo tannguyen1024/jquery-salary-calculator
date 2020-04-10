@@ -10,8 +10,8 @@ Create an application that records employee salaries and adds salaries up to rep
 [x] Set ID and CLASS where needed in html
 [x] Ensure buttons talk to console
 [x] Push the contents from inputs into an array
-[ ] Show array values in the DOM
-[ ] Calculate monthly costs & append to DOM
+[x] Show array values in the DOM
+[x] Calculate monthly costs & append to DOM
 [ ] If exceeds $20,000, make red in DOM
 [ ] Delete button removes entire row from DOM
 [ ] Base Mode Completed, Take a Nap.
