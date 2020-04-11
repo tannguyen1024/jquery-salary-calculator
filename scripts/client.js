@@ -30,6 +30,8 @@ function clickDelete() {
     // console.log($("tbody tr:nth-child(2)"));
     // $("table:nth-child(1)").append("<span> - 2nd!</span>");
     console.log($(this).parent().parent().text());
+    console.log($(this).parent().parent().('.salaryElement').text());
+    
     let delArray = [];
     let delObject = $(this).parent().parent().text();
     delArray.push(delObject);
@@ -49,14 +51,13 @@ function displayEmployee() {
             <td>${employees[i].lastname}</td>
             <td>${employees[i].id}</td>
             <td>${employees[i].title}</td>
-            <td id="annualSalaryTD">$${employees[i].annualsalary}</td>
+            <td class="salaryElement">$${employees[i].annualsalary}</td>
             <td><button class="btn btn-secondary delete">Delete</button></td>
         </tr>`)
         totalSalary += (Number(`${employees[i].annualsalary}`)/12);
         $('.delete').on('click', clickDelete);
     } // End For Loop
     $('#totalMonthlySpan').append(totalSalary.toLocaleString('en-US'));
-    // $('#totalMonthlySpan').append(totalSalary.toFixed(2));
     if (totalSalary > 20000) {
         if (verbose) console.log('GREATER THAN 20K');
         $('#totalMonthlyDiv').addClass('turnsRed')
