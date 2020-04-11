@@ -30,13 +30,15 @@ function clickDelete() {
     // console.log($("tbody tr:nth-child(2)"));
     // $("table:nth-child(1)").append("<span> - 2nd!</span>");
     console.log($(this).parent().parent().text());
-    console.log($(this).parent().parent().('.salaryElement').text());
-    
+    // console.log($(this).parent().parent().('.salaryElement').text());
+// WHY IS THIS NOT WORKING?  START HERE
+    // Attempt to push that value into an array?
     let delArray = [];
     let delObject = $(this).parent().parent().text();
     delArray.push(delObject);
     console.log(delArray);
 
+    // Remove this's grandpa
     $(this).parent().parent().remove();
 } // End of clickDelete
 
