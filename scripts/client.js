@@ -26,17 +26,23 @@ function clickSubmit() {
 } // End of clickSubmit
 
 function clickDelete() {
+    let removeValue = 0;
     console.log('You clicked delete!');
     // console.log($("tbody tr:nth-child(2)"));
     // $("table:nth-child(1)").append("<span> - 2nd!</span>");
-    console.log($(this).parent().parent().text());
-    // console.log($(this).parent().parent().('.salaryElement').text());
+    // console.log($(this).parent().parent().text());
+    console.log($(this).parent().parent().parent().find('.salaryElement').text());
+    // console.log($('#thead').find('.salaryElement').text());
+    // removeValue = $(this).closest().empty();
+    
+    // console.log(removeValue);
+    
 // WHY IS THIS NOT WORKING?  START HERE
     // Attempt to push that value into an array?
-    let delArray = [];
-    let delObject = $(this).parent().parent().text();
-    delArray.push(delObject);
-    console.log(delArray);
+    // let delArray = [];
+    // let delObject = $(this).parent().parent().text();
+    // delArray.push(delObject);
+    // console.log(delArray);
 
     // Remove this's grandpa
     $(this).parent().parent().remove();
@@ -48,10 +54,12 @@ function displayEmployee() {
     $('#totalMonthlySpan').empty();
     totalSalary = 0;
     for (let i = 0; i < employees.length; i++) {
+        console.log(i);
+        let newID = i;
         el.append(`<tr>
             <td>${employees[i].firstname}</td>
             <td>${employees[i].lastname}</td>
-            <td>${employees[i].id}</td>
+            <td id="${newID}">${employees[i].id}</td>
             <td>${employees[i].title}</td>
             <td class="salaryElement">$${employees[i].annualsalary}</td>
             <td><button class="btn btn-secondary delete">Delete</button></td>
