@@ -4,11 +4,12 @@ $(document).ready(handleReady) // This waits until html document is ready.
 let employees = [];
 const verbose = true;
 let totalSalary = 0;
+let indexValue = 0;
 
 function handleReady() {
     if (verbose) console.log('jQuery is Ready!');
     $('#submitButton').on('click', clickSubmit);
-    $('.delete').on('click', clickDelete);
+    // $('.delete').on('click', clickDelete);  // Doesn't need to be here.
 } // End of handleReady
 
 function clickSubmit() {
@@ -26,7 +27,7 @@ function clickSubmit() {
 } // End of clickSubmit
 
 function clickDelete() {
-    let removeValue = 0;
+    // let removeValue = 0;
     console.log('You clicked delete!');
     // console.log($("tbody tr:nth-child(2)"));
     // console.log($(this).parent().parent().text());
@@ -35,13 +36,16 @@ function clickDelete() {
     // $(this).closest('.row').find('.idElement').append(`Yes`);
 
     // WORKING KIND OF
-    // let indexValue=$(this).parent().parent().children().text();
+    indexValue = Number($(this).closest('tr').find('#idElement').text());
+    indexValue -= 1;
+    console.log('indexValue:',(indexValue));
+    employees.splice(indexValue, 1);
+    console.log(employees);
+    indexValue = 0;
+    
+    // let indexValue=$(this).parent().parent().find('.idElement').text();
     // indexValue = indexValue[0].length - 1;
     // console.log('indexValue:',(indexValue));
-    
-    let indexValue=$(this).parent().parent().children().text();
-    indexValue = indexValue[0].length - 1;
-    console.log('indexValue:',(indexValue));
 
     // console.log($('#thead').find('.salaryElement').text());
     // removeValue = $(this).closest().empty();
@@ -57,6 +61,7 @@ function clickDelete() {
 
     // Remove this's grandpa
     // $(this).parent().parent().remove();
+    displayEmployee();
 } // End of clickDelete
 
 function displayEmployee() {
@@ -67,17 +72,17 @@ function displayEmployee() {
     for (let i = 0; i < employees.length; i++) {
         // console.log(i);
         let index = i;
-        el.append(`<tr><div class="row">
-            <td id="idElement ${index}">${index + 1}</td>
+        el.append(`<tr>
+            <td id="idElement">${index + 1}</td>
             <td>${employees[i].firstname}</td>
             <td>${employees[i].lastname}</td>
             <td>${employees[i].id}</td>
             <td>${employees[i].title}</td>
-            <td class="salaryElement">$${employees[i].annualsalary}</td>
+            <td>$${employees[i].annualsalary}</td>
             <td><button class="btn btn-secondary delete">Delete</button></td>
-        </div></tr>`)
+        </tr>`)
         totalSalary += (Number(`${employees[i].annualsalary}`)/12);
-        $('.delete').on('click', clickDelete);
+        
     } // End For Loop
     $('#totalMonthlySpan').append(totalSalary.toLocaleString('en-US'));
     if (totalSalary > 20000) {
@@ -90,4 +95,5 @@ function displayEmployee() {
     $('#idInput').val('');
     $('#titleInput').val('');
     $('#salaryInput').val('');
+    $('.delete').on('click', clickDelete);
 } // End of displayEmployee
