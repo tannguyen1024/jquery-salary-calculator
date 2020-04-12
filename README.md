@@ -1,6 +1,6 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Salary Calculator
 
 ## Description
 
@@ -13,10 +13,11 @@ Create an application that records employee salaries and adds salaries up to rep
 [x] Show array values in the DOM
 [x] Calculate monthly costs & append to DOM
 [x] If exceeds $20,000, make red in DOM
-[ ] Delete button removes entire row from DOM
-[ ] Base Mode Completed, Take a Nap.
+[x] Delete button removes entire row from DOM
+[x] Base Mode Completed
 
-[ ] Start Stretch
-
+[x] Delete from Array once DOM Delete button is pressed 
+[x] Extra Styling
+[x] Stretch Goal Completed
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
