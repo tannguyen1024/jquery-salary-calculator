@@ -4,6 +4,7 @@ $(document).ready(handleReady) // This waits until html document is ready.
 let employees = [];
 const verbose = false;
 let totalSalary = 0;
+let totalAnnual = 0;
 let indexValue = 0;
 
 function handleReady() {
@@ -35,23 +36,15 @@ function clickDelete() {
     // console.log($(this).closest('.row').find('.idElement').text());
     // $(this).closest('.row').find('.idElement').append(`Yes`);
 
-    // WORKING KIND OF
-    indexValue = Number($(this).closest('tr').find('#idElement').text());
-    indexValue -= 1;
-    if (verbose) console.log('indexValue:',(indexValue));
-    employees.splice(indexValue, 1);
-    if (verbose) console.log(employees);
-    indexValue = 0;
-    
     // let indexValue=$(this).parent().parent().find('.idElement').text();
     // indexValue = indexValue[0].length - 1;
     // console.log('indexValue:',(indexValue));
 
     // console.log($('#thead').find('.salaryElement').text());
     // removeValue = $(this).closest().empty();
-    
+
     // console.log(removeValue);
-    
+
 // WHY IS THIS NOT WORKING?  START HERE
     // Attempt to push that value into an array?
     // let delArray = [];
@@ -61,6 +54,14 @@ function clickDelete() {
 
     // Remove this's grandpa
     // $(this).parent().parent().remove();
+
+    indexValue = Number($(this).closest('tr').find('#idElement').text());
+    indexValue -= 1;
+    if (verbose) console.log('indexValue:',(indexValue));
+    employees.splice(indexValue, 1);
+    if (verbose) console.log(employees);
+    indexValue = 0;
+
     displayEmployee();
 } // End of clickDelete
 
@@ -70,6 +71,7 @@ function displayEmployee() {
     $('#totalMonthlySpan').empty();
     $('#totalAnnualSpan').empty();
     totalSalary = 0;
+    totalAnnual = 0;
     for (let i = 0; i < employees.length; i++) {
         // console.log(i);
         let index = i;
@@ -83,14 +85,16 @@ function displayEmployee() {
             <td><button class="btn btn-secondary delete">Delete</button></td>
         </tr>`)
         totalSalary += (Number(`${employees[i].annualsalary}`)/12);
+        totalAnnual += (Number(`${employees[i].annualsalary}`));
         
     } // End For Loop
-    $('#totalAnnualSpan').append((totalSalary.toLocaleString('en-US')*12));
+    $('#totalAnnualSpan').append(totalAnnual.toLocaleString('en-US'));
     $('#totalMonthlySpan').append(totalSalary.toLocaleString('en-US'));
     if (totalSalary > 20000) {
         if (verbose) console.log('GREATER THAN 20K');
         $('#totalMonthlyDiv').addClass('turnsRed')
-    }
+    } 
+    else { $('#totalMonthlyDiv').removeClass('turnsRed')};
     // Empty Input Fields
     $('#firstnameInput').val('');
     $('#lastnameInput').val('');
