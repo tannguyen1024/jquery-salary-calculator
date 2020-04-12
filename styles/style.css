@@ -6,8 +6,8 @@
  text-align: right;
  align-items: right;
 }
-.turnsRed {
+/* .turnsRed {
  background-color: red;
-}
+} */
 body {
  background-image: linear-gradient(to right, #f5ffff, #d4ffff);

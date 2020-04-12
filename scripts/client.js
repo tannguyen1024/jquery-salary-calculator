@@ -92,9 +92,9 @@ function displayEmployee() {
     $('#totalMonthlySpan').append(totalSalary.toLocaleString('en-US'));
     if (totalSalary > 20000) {
         if (verbose) console.log('GREATER THAN 20K');
-        $('#totalMonthlyDiv').addClass('turnsRed')
+        $('#totalMonthlyDiv').addClass('alert alert-danger toast-body')
     } 
-    else { $('#totalMonthlyDiv').removeClass('turnsRed')};
+    else { $('#totalMonthlyDiv').removeClass('alert alert-danger')};
     // Empty Input Fields
     $('#firstnameInput').val('');
     $('#lastnameInput').val('');
