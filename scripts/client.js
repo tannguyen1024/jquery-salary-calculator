@@ -2,7 +2,7 @@ console.log('client.js Sourced In: Successful');
 $(document).ready(handleReady) // This waits until html document is ready.
 
 let employees = [];
-const verbose = true;
+const verbose = false;
 let totalSalary = 0;
 let indexValue = 0;
 
@@ -22,13 +22,13 @@ function clickSubmit() {
         annualsalary: $('#salaryInput').val()
     }
     employees.push(itemToAdd);
-    console.log(employees);
+    if (verbose) console.log(employees);
     displayEmployee();
 } // End of clickSubmit
 
 function clickDelete() {
     // let removeValue = 0;
-    console.log('You clicked delete!');
+    if (verbose) console.log('You clicked delete!');
     // console.log($("tbody tr:nth-child(2)"));
     // console.log($(this).parent().parent().text());
     // console.log('Testing!');
@@ -38,9 +38,9 @@ function clickDelete() {
     // WORKING KIND OF
     indexValue = Number($(this).closest('tr').find('#idElement').text());
     indexValue -= 1;
-    console.log('indexValue:',(indexValue));
+    if (verbose) console.log('indexValue:',(indexValue));
     employees.splice(indexValue, 1);
-    console.log(employees);
+    if (verbose) console.log(employees);
     indexValue = 0;
     
     // let indexValue=$(this).parent().parent().find('.idElement').text();
@@ -68,6 +68,7 @@ function displayEmployee() {
     let el = $('#table');
     $('#tableHeader').siblings().empty();
     $('#totalMonthlySpan').empty();
+    $('#totalAnnualSpan').empty();
     totalSalary = 0;
     for (let i = 0; i < employees.length; i++) {
         // console.log(i);
@@ -84,6 +85,7 @@ function displayEmployee() {
         totalSalary += (Number(`${employees[i].annualsalary}`)/12);
         
     } // End For Loop
+    $('#totalAnnualSpan').append((totalSalary.toLocaleString('en-US')*12));
     $('#totalMonthlySpan').append(totalSalary.toLocaleString('en-US'));
     if (totalSalary > 20000) {
         if (verbose) console.log('GREATER THAN 20K');

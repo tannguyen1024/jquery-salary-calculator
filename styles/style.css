@@ -1,7 +1,13 @@
 #totalMonthlyDiv {
-text-align: right;
-align-items: right;
+ text-align: right;
+ align-items: right;
+}
+#totalAnnualDiv {
+ text-align: right;
+ align-items: right;
 }
 .turnsRed {
-    background-color: red;
+ background-color: red;
 }
+body {
+ background-image: linear-gradient(to right, #f5ffff, #d4ffff);
